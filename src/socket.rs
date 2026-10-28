@@ -11,7 +11,7 @@ use std::io::{self, Read, Write};
 #[cfg(not(any(target_os = "redox", target_os = "wasi", target_os = "horizon")))]
 use std::io::{IoSlice, IoSliceMut};
 use std::mem::MaybeUninit;
-#[cfg(not(any(target_os = "nto", target_os = "nuttx")))]
+#[cfg(not(any(target_env = "nto71", target_env = "nto70", target_os = "nuttx")))]
 use std::net::Ipv6Addr;
 use std::net::{self, Ipv4Addr, Shutdown};
 #[cfg(any(unix, all(target_os = "wasi", not(target_env = "p1"))))]

@@ -277,6 +277,8 @@ pub(crate) use libc::{
     target_os = "watchos",
     target_os = "nuttx",
     target_os = "wasi",
+    target_os = "nto",
+    target_os = "qnx",
 )))]
 pub(crate) use libc::{IPV6_ADD_MEMBERSHIP, IPV6_DROP_MEMBERSHIP};
 #[cfg(any(
@@ -292,6 +294,12 @@ pub(crate) use libc::{IPV6_ADD_MEMBERSHIP, IPV6_DROP_MEMBERSHIP};
     target_os = "solaris",
     target_os = "tvos",
     target_os = "watchos",
+    all(
+        target_os = "nto",
+        not(target_env = "nto71"),
+        not(target_env = "nto70")
+    ),
+    target_os = "qnx",
     all(target_os = "wasi", not(target_env = "p1")),
 ))]
 pub(crate) use libc::{
@@ -427,6 +435,7 @@ type IovLen = usize;
     target_os = "macos",
     target_os = "netbsd",
     target_os = "nto",
+    target_os = "qnx",
     target_os = "openbsd",
     target_os = "solaris",
     target_os = "tvos",
